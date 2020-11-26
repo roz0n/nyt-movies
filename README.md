@@ -1,2 +1,2 @@
 # nyt-movies
-ios app utilizing NYT's Movie Reviews API
+NYT Movie Reviews iOS app 

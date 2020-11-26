@@ -47,7 +47,7 @@ class NYTMoviesDataManager {
                 }
                 
                 if let data = data {
-                    if let criticData: CriticAPIResponseModel = self.parseJSON(data) {
+                    if let criticData: CriticsPicksResponseModel = self.parseJSON(data) {
                         self.delegate?.didUpdateData(from: self, criticData.results)
                     } else {
                         self.delegate?.didError(from: self, "Error decoding critics data!")
@@ -67,12 +67,12 @@ class NYTMoviesDataManager {
 extension NYTMoviesDataManager {
     
     // TODO: Use a generic return type here to make this more extensible like the comment at the start of this file implies
-    func parseJSON(_ data: Data) -> CriticAPIResponseModel? {
+    func parseJSON(_ data: Data) -> CriticsPicksResponseModel? {
         let decoder = JSONDecoder()
         
         do {
-            let decodedData = try decoder.decode(CriticAPIResponseModel.self, from: data)
-            return CriticAPIResponseModel(results: decodedData.results)
+            let decodedData = try decoder.decode(CriticsPicksResponseModel.self, from: data)
+            return CriticsPicksResponseModel(results: decodedData.results)
         } catch {
             return nil
         }

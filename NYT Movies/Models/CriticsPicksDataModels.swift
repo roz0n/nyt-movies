@@ -1,5 +1,5 @@
 //
-//  PicksDataModels.swift
+//  CriticsPicksDataModels.swift
 //  NYT Movies
 //
 //  Created by Arnaldo Rozon on 11/26/20.
@@ -13,6 +13,6 @@ struct CriticModel: Codable {
     let seo_name: String?
 }
 
-struct CriticAPIResponseModel: Codable {
+struct CriticsPicksResponseModel: Codable {
     let results: [CriticModel]
 }
