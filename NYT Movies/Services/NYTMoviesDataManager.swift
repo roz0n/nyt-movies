@@ -7,10 +7,17 @@
 
 import Foundation
 
+// TODO: Modify this class, its extension(s), and its delegate protocol to handle all API data types, not just Critics as it does now
+
+protocol NYTMoviesDataManagerDelegate {
+    func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel])
+    func didError(from service: NYTMoviesDataManager, _ error: String)
+}
+
 class NYTMoviesDataManager {
     
+    var delegate: NYTMoviesDataManagerDelegate?
     static let shared = NYTMoviesDataManager()
-    var critics: [CriticModel]?
     
     func getEndpoint() -> String {
         var apiKey: String?
@@ -32,22 +39,24 @@ class NYTMoviesDataManager {
         guard let url = URL(string: endpoint) else { return }
         let session = URLSession(configuration: .default)
         
-        let task = session.dataTask(with: url) { (data, _, error) in
-            if error != nil {
-                // TODO: Present modal on error
-                return
-            }
-            
-            if let data = data {
-                if let criticData: CriticAPIResponseModel = self.parseJSON(data) {
-                    // TODO: Store data locally
-                    print("Critic data parsing success!")
-                    self.critics = criticData.results
+        DispatchQueue.global().async {
+            let task = session.dataTask(with: url) { (data, _, error) in
+                if error != nil {
+                    // TODO: Present modal as this error means a failure is not related to NYT but to some issue with the device connection or API key
+                    return
+                }
+                
+                if let data = data {
+                    if let criticData: CriticAPIResponseModel = self.parseJSON(data) {
+                        self.delegate?.didUpdateData(from: self, criticData.results)
+                    } else {
+                        self.delegate?.didError(from: self, "Error decoding critics data!")
+                    }
                 }
             }
+            
+            task.resume()
         }
-
-        task.resume()
     }
     
 }
@@ -57,17 +66,14 @@ class NYTMoviesDataManager {
 
 extension NYTMoviesDataManager {
     
+    // TODO: Use a generic return type here to make this more extensible like the comment at the start of this file implies
     func parseJSON(_ data: Data) -> CriticAPIResponseModel? {
         let decoder = JSONDecoder()
         
         do {
             let decodedData = try decoder.decode(CriticAPIResponseModel.self, from: data)
-            let parsedData = CriticAPIResponseModel(results: decodedData.results)
-            
-            print(parsedData)
-            return parsedData
+            return CriticAPIResponseModel(results: decodedData.results)
         } catch {
-            print("Error decoding JSON")
             return nil
         }
     }

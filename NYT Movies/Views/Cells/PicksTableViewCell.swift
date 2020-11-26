@@ -9,7 +9,7 @@ import UIKit
 
 class PicksTableViewCell: UITableViewCell {
     
-    static let reuseId = "picksCell"
+    static let reuseId = "criticsCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
