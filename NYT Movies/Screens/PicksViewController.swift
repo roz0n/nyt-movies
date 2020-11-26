@@ -12,6 +12,9 @@ class PicksViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(PicksTableViewCell.self, forCellReuseIdentifier: PicksTableViewCell.reuseId)
+        
+        // Test network req
+        NYTMoviesDataManager.shared.fetchCriticData()
     }
     
 
@@ -32,7 +35,7 @@ class PicksViewController: UITableViewController {
 extension PicksViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return NYTMoviesDataManager.shared.critics?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
