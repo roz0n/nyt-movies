@@ -13,7 +13,7 @@ class CriticsPicksViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(PicksTableViewCell.self, forCellReuseIdentifier: PicksTableViewCell.reuseId)
+        tableView.register(CriticsListTableViewCell.self, forCellReuseIdentifier: CriticsListTableViewCell.reuseId)
         
         NYTMoviesDataManager.shared.delegate = self
         NYTMoviesDataManager.shared.fetchCriticData()
@@ -30,8 +30,12 @@ extension CriticsPicksViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PicksTableViewCell.reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsListTableViewCell.reuseId, for: indexPath)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
 }

@@ -17,7 +17,7 @@
 		235DF390256F045B00DAFCC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF38F256F045B00DAFCC0 /* Constants.swift */; };
 		235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */; };
 		235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF39E256F312400DAFCC0 /* UIColor.swift */; };
-		235DF3A4256F366800DAFCC0 /* PicksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */; };
+		235DF3A4256F366800DAFCC0 /* CriticsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* CriticsListTableViewCell.swift */; };
 		235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */; };
 		235DF3AF256F984200DAFCC0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 235DF3AE256F984200DAFCC0 /* Keys.plist */; };
 		235DF3B3256FA0A300DAFCC0 /* CriticsPicksDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */; };
@@ -36,7 +36,7 @@
 		235DF38F256F045B00DAFCC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViews.swift; sourceTree = "<group>"; };
 		235DF39E256F312400DAFCC0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksTableViewCell.swift; sourceTree = "<group>"; };
+		235DF3A3256F366800DAFCC0 /* CriticsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsListTableViewCell.swift; sourceTree = "<group>"; };
 		235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NYTMoviesDataManager.swift; path = "NYT Movies/Services/NYTMoviesDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		235DF3AE256F984200DAFCC0 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsPicksDataModels.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		235DF3A2256F365000DAFCC0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */,
+				235DF3A3256F366800DAFCC0 /* CriticsListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -244,7 +244,7 @@
 				235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */,
 				235DF385256EFA6A00DAFCC0 /* SearchViewController.swift in Sources */,
 				235DF3B3256FA0A300DAFCC0 /* CriticsPicksDataModels.swift in Sources */,
-				235DF3A4256F366800DAFCC0 /* PicksTableViewCell.swift in Sources */,
+				235DF3A4256F366800DAFCC0 /* CriticsListTableViewCell.swift in Sources */,
 				235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */,
 				235DF381256EFA5D00DAFCC0 /* CriticsPicksViewController.swift in Sources */,
 				235DF390256F045B00DAFCC0 /* Constants.swift in Sources */,
