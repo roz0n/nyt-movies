@@ -10,12 +10,9 @@ import UIKit
 class CriticsListTableViewCell: UITableViewCell {
     
     static let reuseId = "criticsCell"
+    static let cellHeight = CGFloat(100)
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
+
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
 //
@@ -34,23 +31,21 @@ class CriticsListTableViewCell: UITableViewCell {
     // MARK: - UI Elements
     
     let photoContainer: UIView = {
-        let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
-        let view = UIView(frame: rect)
+        let view = UIView()
         
+        view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
-        view.backgroundColor = .blue
         
         return view
     }()
     
     let infoContainer: UIView = {
-        let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
-        let view = UIView(frame: rect)
-        
+        let view = UIView()
+
+        view.backgroundColor = .cyan
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
-        view.backgroundColor = .cyan
         
         return view
     }()
@@ -62,19 +57,28 @@ class CriticsListTableViewCell: UITableViewCell {
 extension CriticsListTableViewCell {
     
     func configureLayout() {
-        self.contentView.addSubview(photoContainer)
-        self.contentView.addSubview(infoContainer)
-        
-        NSLayoutConstraint.activate([
-//            photoContainer.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-//            photoContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10)
+        configurePhotoContainer()
+        configureInfoContainer()
+    }
+    
 
-            infoContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 100),
+    func configurePhotoContainer() {
+        self.contentView.addSubview(photoContainer)
+        NSLayoutConstraint.activate([
+            photoContainer.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
+            photoContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellHeight),
+            photoContainer.widthAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellHeight)
+        ])
+    }
+    
+    func configureInfoContainer() {
+        self.contentView.addSubview(infoContainer)
+        NSLayoutConstraint.activate([
+            infoContainer.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
+            infoContainer.leadingAnchor.constraint(equalTo: photoContainer.trailingAnchor),
             infoContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            infoContainer.heightAnchor.constraint(equalToConstant: 100),
-//            infoContainer.widthAnchor.constraint(equalToConstant: 100)
-//            infoContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 100),
-//            infoContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10)
+            infoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellHeight)
         ])
     }
     
