@@ -10,8 +10,8 @@ import UIKit
 struct K {
     
     struct Colors {
-        static let NYTWhite = UIColor(cgColor: CGColor(red: 248/255, green: 247/255, blue: 247/255, alpha: 1.0))
-        static let NYTBlack = UIColor(cgColor: CGColor(red: 12/255, green: 12/255, blue: 13/255, alpha: 1.0))
+        static let NYTWhite = UIColor(r: 248, g: 247, b: 247, a: 1)
+        static let NYTBlack = UIColor(r: 12, g: 12, b: 13, a: 1)
     }
     
     struct SearchViewCopy {

@@ -16,6 +16,7 @@
 		235DF38C256EFAA700DAFCC0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF38B256EFAA700DAFCC0 /* FavoritesViewController.swift */; };
 		235DF390256F045B00DAFCC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF38F256F045B00DAFCC0 /* Constants.swift */; };
 		235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */; };
+		235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF39E256F312400DAFCC0 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		235DF38B256EFAA700DAFCC0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		235DF38F256F045B00DAFCC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViews.swift; sourceTree = "<group>"; };
+		235DF39E256F312400DAFCC0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		235DF362256EF39700DAFCC0 /* NYT Movies */ = {
 			isa = PBXGroup;
 			children = (
+				235DF39D256F311400DAFCC0 /* Extensions */,
 				235DF395256F19A700DAFCC0 /* Views */,
 				235DF38E256F044700DAFCC0 /* Utils */,
 				235DF37F256EFA4400DAFCC0 /* Screens */,
@@ -98,6 +101,14 @@
 				235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		235DF39D256F311400DAFCC0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				235DF39E256F312400DAFCC0 /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 				235DF381256EFA5D00DAFCC0 /* PicksViewController.swift in Sources */,
 				235DF390256F045B00DAFCC0 /* Constants.swift in Sources */,
 				235DF38C256EFAA700DAFCC0 /* FavoritesViewController.swift in Sources */,
+				235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */,
 				235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */,
 				235DF366256EF39700DAFCC0 /* SceneDelegate.swift in Sources */,
 			);
