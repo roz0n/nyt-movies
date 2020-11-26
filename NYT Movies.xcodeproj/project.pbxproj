@@ -18,6 +18,8 @@
 		235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */; };
 		235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF39E256F312400DAFCC0 /* UIColor.swift */; };
 		235DF3A4256F366800DAFCC0 /* PicksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */; };
+		235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */; };
+		235DF3AF256F984200DAFCC0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 235DF3AE256F984200DAFCC0 /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViews.swift; sourceTree = "<group>"; };
 		235DF39E256F312400DAFCC0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksTableViewCell.swift; sourceTree = "<group>"; };
+		235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NYTMoviesDataManager.swift; path = "NYT Movies/Services/NYTMoviesDataManager.swift"; sourceTree = SOURCE_ROOT; };
+		235DF3AE256F984200DAFCC0 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		235DF362256EF39700DAFCC0 /* NYT Movies */ = {
 			isa = PBXGroup;
 			children = (
+				235DF3A9256F977900DAFCC0 /* Services */,
 				235DF39D256F311400DAFCC0 /* Extensions */,
 				235DF395256F19A700DAFCC0 /* Views */,
 				235DF38E256F044700DAFCC0 /* Utils */,
@@ -75,6 +80,7 @@
 				235DF36C256EF39800DAFCC0 /* Assets.xcassets */,
 				235DF36E256EF39800DAFCC0 /* LaunchScreen.storyboard */,
 				235DF371256EF39800DAFCC0 /* Info.plist */,
+				235DF3AE256F984200DAFCC0 /* Keys.plist */,
 			);
 			path = "NYT Movies";
 			sourceTree = "<group>";
@@ -110,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				235DF39E256F312400DAFCC0 /* UIColor.swift */,
+				235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -120,6 +127,13 @@
 				235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		235DF3A9256F977900DAFCC0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235DF3AF256F984200DAFCC0 /* Keys.plist in Resources */,
 				235DF370256EF39800DAFCC0 /* LaunchScreen.storyboard in Resources */,
 				235DF36D256EF39800DAFCC0 /* Assets.xcassets in Resources */,
 			);
@@ -191,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */,
 				235DF385256EFA6A00DAFCC0 /* SearchViewController.swift in Sources */,
 				235DF3A4256F366800DAFCC0 /* PicksTableViewCell.swift in Sources */,
 				235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */,
