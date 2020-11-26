@@ -57,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				235DF362256EF39700DAFCC0 /* NYT Movies */,
-				235DF36C256EF39800DAFCC0 /* Assets.xcassets */,
 				235DF361256EF39700DAFCC0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +72,7 @@
 		235DF362256EF39700DAFCC0 /* NYT Movies */ = {
 			isa = PBXGroup;
 			children = (
+				235DF36C256EF39800DAFCC0 /* Assets.xcassets */,
 				235DF3B1256FA07000DAFCC0 /* Models */,
 				235DF3A9256F977900DAFCC0 /* Services */,
 				235DF39D256F311400DAFCC0 /* Extensions */,
