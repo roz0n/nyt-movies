@@ -17,6 +17,7 @@
 		235DF390256F045B00DAFCC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF38F256F045B00DAFCC0 /* Constants.swift */; };
 		235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */; };
 		235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF39E256F312400DAFCC0 /* UIColor.swift */; };
+		235DF3A4256F366800DAFCC0 /* PicksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		235DF38F256F045B00DAFCC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViews.swift; sourceTree = "<group>"; };
 		235DF39E256F312400DAFCC0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		235DF395256F19A700DAFCC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				235DF3A2256F365000DAFCC0 /* Cells */,
 				235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */,
 			);
 			path = Views;
@@ -109,6 +112,14 @@
 				235DF39E256F312400DAFCC0 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		235DF3A2256F365000DAFCC0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				235DF3A3256F366800DAFCC0 /* PicksTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				235DF385256EFA6A00DAFCC0 /* SearchViewController.swift in Sources */,
+				235DF3A4256F366800DAFCC0 /* PicksTableViewCell.swift in Sources */,
 				235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */,
 				235DF381256EFA5D00DAFCC0 /* PicksViewController.swift in Sources */,
 				235DF390256F045B00DAFCC0 /* Constants.swift in Sources */,

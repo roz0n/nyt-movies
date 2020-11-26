@@ -7,13 +7,11 @@
 
 import UIKit
 
-class PicksViewController: UIViewController {
+class PicksViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .orange
+        tableView.register(PicksTableViewCell.self, forCellReuseIdentifier: PicksTableViewCell.reuseId)
     }
     
 
@@ -27,4 +25,19 @@ class PicksViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: - TableView Data
+
+extension PicksViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PicksTableViewCell.reuseId, for: indexPath)
+        return cell
+    }
+    
 }

@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tb = UITabBarController()
         tb.viewControllers = [configureSearchVC(), configurePicksVC(), configureFavoritesVC()]
-        tb.selectedIndex = 0
+        tb.selectedIndex = 1
         
         configureTabBar()
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
@@ -65,12 +65,6 @@ extension SceneDelegate {
         UITabBar.appearance().tintColor = K.Colors.NYTBlack
         UITabBar.appearance().barTintColor = K.Colors.NYTWhite
     }
-    
-    // TODO: Figure this out
-//    func configureNavBar() {
-//        UINavigationBar.appearance().tintColor = K.Colors.NYTBlack
-//        UINavigationBar.appearance().barTintColor = K.Colors.NYTWhite
-//    }
     
     func configurePicksVC() -> UINavigationController {
         let vc = PicksViewController()
