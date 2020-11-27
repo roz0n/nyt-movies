@@ -30,7 +30,8 @@ extension CriticsPicksViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsListTableViewCell.reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsListTableViewCell.reuseId, for: indexPath) as! CriticsListTableViewCell
+        cell.criticData = self.critics?[indexPath.row]
         return cell
     }
     

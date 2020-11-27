@@ -12,6 +12,14 @@ class CriticsListTableViewCell: UITableViewCell {
     static let reuseId = "criticsCell"
     static let cellHeight = CGFloat(100)
     
+    var criticData: CriticModel? {
+        didSet {
+            guard let criticData = criticData else { return }
+            nameText.text = criticData.display_name
+            bioText.text = criticData.bio
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: CriticsListTableViewCell.reuseId)
         configureLayout()
@@ -51,9 +59,10 @@ class CriticsListTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isEditable = false
         view.isScrollEnabled = false
+        view.isSelectable = false
         view.clipsToBounds = true
-        view.font = .systemFont(ofSize: 12, weight: .regular)
-        view.text = "A.R. Criticgoy"
+        view.font = .systemFont(ofSize: 12, weight: .bold)
+//        view.text = "A.R. Criticgoy"
         view.backgroundColor = .green
         
         return view
@@ -65,9 +74,10 @@ class CriticsListTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isEditable = false
         view.isScrollEnabled = false
+        view.isSelectable = false
         view.clipsToBounds = true
         view.font = .systemFont(ofSize: 12, weight: .regular)
-        view.text = "He's just a goy from the citeh watchin flix and writin."
+//        view.text = "He's just a goy from the citeh watchin flix and writin."
         
         return view
     }()
