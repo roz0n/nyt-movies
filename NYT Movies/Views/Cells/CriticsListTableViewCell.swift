@@ -12,13 +12,6 @@ class CriticsListTableViewCell: UITableViewCell {
     static let reuseId = "criticsCell"
     static let cellHeight = CGFloat(100)
     
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: CriticsListTableViewCell.reuseId)
         configureLayout()
@@ -28,7 +21,7 @@ class CriticsListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UI Elements
+    // MARK: - View containers
     
     let photoContainer: UIView = {
         let view = UIView()
@@ -50,17 +43,47 @@ class CriticsListTableViewCell: UITableViewCell {
         return view
     }()
     
+    // MARK: - Subviews
+    
+    let nameText: UITextView = {
+        let view = UITextView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isEditable = false
+        view.isScrollEnabled = false
+        view.clipsToBounds = true
+        view.font = .systemFont(ofSize: 12, weight: .regular)
+        view.text = "A.R. Criticgoy"
+        view.backgroundColor = .green
+        
+        return view
+    }()
+    
+    let bioText: UITextView = {
+        let view = UITextView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isEditable = false
+        view.isScrollEnabled = false
+        view.clipsToBounds = true
+        view.font = .systemFont(ofSize: 12, weight: .regular)
+        view.text = "He's just a goy from the citeh watchin flix and writin."
+        
+        return view
+    }()
 }
 
 // MARK: - Layout Configuration
 
 extension CriticsListTableViewCell {
     
+    // MARK: - Configure containers
+    
     func configureLayout() {
         configurePhotoContainer()
         configureInfoContainer()
+        configureSubviews()
     }
-    
 
     func configurePhotoContainer() {
         self.contentView.addSubview(photoContainer)
@@ -82,4 +105,29 @@ extension CriticsListTableViewCell {
         ])
     }
     
+    // MARK: - Configure subviews
+    
+    func configureSubviews() {
+        configureNameText()
+        configureBioText()
+    }
+    
+    func configureNameText() {
+        infoContainer.addSubview(nameText)
+        NSLayoutConstraint.activate([
+            nameText.topAnchor.constraint(equalTo: infoContainer.topAnchor),
+            nameText.leadingAnchor.constraint(equalTo: infoContainer.leadingAnchor),
+            nameText.trailingAnchor.constraint(equalTo: infoContainer.trailingAnchor),
+        ])
+    }
+    
+    func configureBioText() {
+        infoContainer.addSubview(bioText)
+        NSLayoutConstraint.activate([
+            bioText.topAnchor.constraint(equalTo: infoContainer.topAnchor, constant: 25),
+            bioText.leadingAnchor.constraint(equalTo: infoContainer.leadingAnchor),
+            bioText.trailingAnchor.constraint(equalTo: infoContainer.trailingAnchor),
+            bioText.heightAnchor.constraint(equalToConstant: 75)
+        ])
+    }
 }
