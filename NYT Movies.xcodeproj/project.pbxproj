@@ -20,8 +20,8 @@
 		235DF3A4256F366800DAFCC0 /* CriticsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* CriticsListCell.swift */; };
 		235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */; };
 		235DF3AF256F984200DAFCC0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 235DF3AE256F984200DAFCC0 /* Keys.plist */; };
-		235DF3B3256FA0A300DAFCC0 /* CriticsPicksDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */; };
 		23C75B372571E4E400E742A7 /* CriticsPicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C75B362571E4E400E742A7 /* CriticsPicksViewController.swift */; };
+		23C75B3A2571F87400E742A7 /* NYTDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C75B392571F87400E742A7 /* NYTDataModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,8 @@
 		235DF3A3256F366800DAFCC0 /* CriticsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsListCell.swift; sourceTree = "<group>"; };
 		235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NYTMoviesDataManager.swift; path = "NYT Movies/Services/NYTMoviesDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		235DF3AE256F984200DAFCC0 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
-		235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsPicksDataModels.swift; sourceTree = "<group>"; };
 		23C75B362571E4E400E742A7 /* CriticsPicksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsPicksViewController.swift; sourceTree = "<group>"; };
+		23C75B392571F87400E742A7 /* NYTDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTDataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		235DF395256F19A700DAFCC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				235DF3B9256FB19500DAFCC0 /* Storyboards (Remove) */,
+				235DF3B9256FB19500DAFCC0 /* Storyboards */,
 				235DF3A2256F365000DAFCC0 /* Cells */,
 				235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */,
 				23C75B362571E4E400E742A7 /* CriticsPicksViewController.swift */,
@@ -143,7 +143,7 @@
 		235DF3B1256FA07000DAFCC0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */,
+				23C75B392571F87400E742A7 /* NYTDataModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,12 +157,12 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		235DF3B9256FB19500DAFCC0 /* Storyboards (Remove) */ = {
+		235DF3B9256FB19500DAFCC0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				235DF36E256EF39800DAFCC0 /* LaunchScreen.storyboard */,
 			);
-			path = "Storyboards (Remove)";
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		235DF3BA256FB1AC00DAFCC0 /* Config */ = {
@@ -247,12 +247,12 @@
 				235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */,
 				235DF385256EFA6A00DAFCC0 /* SearchViewController.swift in Sources */,
 				23C75B372571E4E400E742A7 /* CriticsPicksViewController.swift in Sources */,
-				235DF3B3256FA0A300DAFCC0 /* CriticsPicksDataModels.swift in Sources */,
 				235DF3A4256F366800DAFCC0 /* CriticsListCell.swift in Sources */,
 				235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */,
 				235DF381256EFA5D00DAFCC0 /* CriticsListViewController.swift in Sources */,
 				235DF390256F045B00DAFCC0 /* Constants.swift in Sources */,
 				235DF38C256EFAA700DAFCC0 /* FavoritesViewController.swift in Sources */,
+				23C75B3A2571F87400E742A7 /* NYTDataModels.swift in Sources */,
 				235DF39F256F312400DAFCC0 /* UIColor+Ext.swift in Sources */,
 				235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */,
 				235DF366256EF39700DAFCC0 /* SceneDelegate.swift in Sources */,

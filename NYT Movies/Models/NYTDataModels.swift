@@ -1,9 +1,13 @@
 //
-//  CriticsPicksDataModels.swift
+//  NYTDataModels.swift
 //  NYT Movies
 //
-//  Created by Arnaldo Rozon on 11/26/20.
+//  Created by Arnaldo Rozon on 11/27/20.
 //
+
+struct NYTDataResponseModel: Codable {
+    let results: [CriticModel]
+}
 
 struct CriticModel: Codable {
     let display_name: String?
@@ -11,8 +15,4 @@ struct CriticModel: Codable {
     let status: String?
     let bio: String?
     let seo_name: String?
-}
-
-struct CriticsPicksResponseModel: Codable {
-    let results: [CriticModel]
 }

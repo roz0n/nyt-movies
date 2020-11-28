@@ -7,22 +7,31 @@
 
 import UIKit
 
-class CriticsPicksViewController: UIViewController {
-
+class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate {
+    
+    var criticData: CriticModel?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = criticData?.display_name
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        NYTMoviesDataManager.shared.delegate = self
+    }
+
+}
+
+// MARK: - NYT Data Delegate
+
+extension CriticsPicksViewController {
+    func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel]) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func didError(from service: NYTMoviesDataManager, _ error: String) {
+        print("Error: CriticsPicks View")
     }
-    */
-
 }

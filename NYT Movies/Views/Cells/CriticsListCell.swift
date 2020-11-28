@@ -30,7 +30,7 @@ class CriticsListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - View wrappers
+    // MARK: - View Wrappers
     
     // TODO: Restructure this view hierarchy so this is no longer needed
     
@@ -43,7 +43,7 @@ class CriticsListCell: UITableViewCell {
         return view
     }()
     
-    // MARK: - View containers
+    // MARK: - View Containers
     
     let photoContainer: UIView = {
         let view = UIView()
@@ -112,7 +112,7 @@ extension CriticsListCell {
         configureSubviews()
     }
     
-    // MARK: - Configure wrappers
+    // MARK: - Configure Wrappers
     
     func configurePhotoWrapper() {
         self.contentView.addSubview(photoWrapper)
@@ -124,7 +124,7 @@ extension CriticsListCell {
         ])
     }
     
-    // MARK: - Configure containers
+    // MARK: - Configure Containers
 
     func configurePhotoContainer() {
         photoWrapper.addSubview(photoContainer)
@@ -146,7 +146,7 @@ extension CriticsListCell {
         ])
     }
     
-    // MARK: - Configure subviews
+    // MARK: - Configure Subviews
     
     func configureSubviews() {
         configureNameText()

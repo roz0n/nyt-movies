@@ -44,7 +44,8 @@ extension CriticsListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.pushPicksVC()
+        guard let critics = critics else { return }
+        self.pushPicksVC(critic: critics[indexPath.row])
     }
     
 }
@@ -72,9 +73,10 @@ extension CriticsListViewController: NYTMoviesDataManagerDelegate {
 
 extension CriticsListViewController {
     
-    func pushPicksVC() {
+    // TODO: Make this function more generic
+    func pushPicksVC(critic: CriticModel) {
         let picksVC = CriticsPicksViewController()
-        // set some attributes
+        picksVC.criticData = critic
         navigationController?.pushViewController(picksVC, animated: true)
     }
     
