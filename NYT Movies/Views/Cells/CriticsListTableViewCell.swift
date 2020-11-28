@@ -10,7 +10,8 @@ import UIKit
 class CriticsListTableViewCell: UITableViewCell {
     
     static let reuseId = "criticsCell"
-    static let cellHeight = CGFloat(100)
+    static let cellSize = CGFloat(100)
+    static let photoSize = CGFloat(cellSize - 24)
     
     var criticData: CriticModel? {
         didSet {
@@ -29,13 +30,30 @@ class CriticsListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View wrappers
+    
+    // TODO: Restructure this view hierarchy so this is no longer needed
+    
+    let photoWrapper: UIView = {
+        let view  = UIView()
+        
+        view.backgroundColor = .blue
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     // MARK: - View containers
     
     let photoContainer: UIView = {
         let view = UIView()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.layer.cornerRadius = 40
+        view.bounds = CGRect(x: 0, y: 0, width: photoSize, height: photoSize)
+        view.layer.cornerRadius = photoSize / 2
         view.clipsToBounds = true
         
         return view
@@ -87,21 +105,34 @@ class CriticsListTableViewCell: UITableViewCell {
 
 extension CriticsListTableViewCell {
     
-    // MARK: - Configure containers
-    
     func configureLayout() {
+        configurePhotoWrapper()
         configurePhotoContainer()
         configureInfoContainer()
         configureSubviews()
     }
+    
+    // MARK: - Configure wrappers
+    
+    func configurePhotoWrapper() {
+        self.contentView.addSubview(photoWrapper)
+        NSLayoutConstraint.activate([
+            photoWrapper.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
+            photoWrapper.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            photoWrapper.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellSize),
+            photoWrapper.widthAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellSize)
+        ])
+    }
+    
+    // MARK: - Configure containers
 
     func configurePhotoContainer() {
-        self.contentView.addSubview(photoContainer)
+        photoWrapper.addSubview(photoContainer)
         NSLayoutConstraint.activate([
-            photoContainer.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            photoContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellHeight),
-            photoContainer.widthAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellHeight)
+            photoContainer.centerYAnchor.constraint(equalTo: photoWrapper.centerYAnchor),
+            photoContainer.leadingAnchor.constraint(equalTo: photoWrapper.leadingAnchor, constant: 12),
+            photoContainer.trailingAnchor.constraint(equalTo: photoWrapper.trailingAnchor, constant: -12),
+            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.photoSize)
         ])
     }
     
@@ -109,9 +140,9 @@ extension CriticsListTableViewCell {
         self.contentView.addSubview(infoContainer)
         NSLayoutConstraint.activate([
             infoContainer.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            infoContainer.leadingAnchor.constraint(equalTo: photoContainer.trailingAnchor),
+            infoContainer.leadingAnchor.constraint(equalTo: photoWrapper.trailingAnchor),
             infoContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            infoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellHeight)
+            infoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellSize)
         ])
     }
     
@@ -140,4 +171,5 @@ extension CriticsListTableViewCell {
             bioText.heightAnchor.constraint(equalToConstant: 75)
         ])
     }
+    
 }

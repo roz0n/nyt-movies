@@ -36,7 +36,7 @@ extension CriticsPicksViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CriticsListTableViewCell.cellHeight
+        return CriticsListTableViewCell.cellSize
     }
     
 }
