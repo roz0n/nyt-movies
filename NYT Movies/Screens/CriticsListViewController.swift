@@ -25,7 +25,7 @@ class CriticsListViewController: UITableViewController {
     
 }
 
-// MARK: - TableView Data
+// MARK: - Table View
 
 extension CriticsListViewController {
     
@@ -54,6 +54,7 @@ extension CriticsListViewController {
 // MARK: - NYT Data Delegate
 
 extension CriticsListViewController: NYTMoviesDataManagerDelegate {
+    
     func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel]) {
         // TODO: Grab reviews data
         print("Got that critic's reviews!")

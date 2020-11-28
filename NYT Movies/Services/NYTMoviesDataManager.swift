@@ -7,8 +7,13 @@
 
 import Foundation
 
-// TODO: Modify this class, its extension(s), and its delegate protocol to handle all API data types, not just Critics as it does now.
-// There's also a ton of repetition and some jive code to generate the URL, but it's ok for now while we build out the UI. This code is deffo not production-ready yet.
+/*
+ 
+ This code is pretty wet (sherm, angel dust, pcp...) and bit of mess at the moment.
+ TODO: refactor this class, its extension(s), and its delegate protocol to handle all API data types, not just Critics as it does now.
+ There's also a ton of repetition and some jive code to generate the URL, but it's ok for now while we build out the UI.
+ 
+ **/
 
 protocol NYTMoviesDataManagerDelegate {
     func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel])
