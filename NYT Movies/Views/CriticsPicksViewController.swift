@@ -9,10 +9,11 @@ import UIKit
 
 class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate {
     
-    var criticData: CriticModel?
+    var critic: CriticModel?
+    var reviews: [CriticReviewModel]?
     
     override func viewWillAppear(_ animated: Bool) {
-        self.title = criticData?.display_name
+        self.title = critic?.display_name
     }
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
         view.backgroundColor = .white
         
         NYTMoviesDataManager.shared.delegate = self
+        NYTMoviesDataManager.shared.fetchCriticReviews(of: (critic?.display_name)!)
     }
 
 }
@@ -27,6 +29,10 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
 // MARK: - NYT Data Delegate
 
 extension CriticsPicksViewController {
+    func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel]) {
+        self.reviews = data
+    }
+    
     func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel]) {
         
     }

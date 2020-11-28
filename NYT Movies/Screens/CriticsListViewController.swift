@@ -45,7 +45,8 @@ extension CriticsListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let critics = critics else { return }
-        self.pushPicksVC(critic: critics[indexPath.row])
+        let selectedCritic = critics[indexPath.row]
+        self.pushPicksVC(critic: selectedCritic)
     }
     
 }
@@ -53,6 +54,11 @@ extension CriticsListViewController {
 // MARK: - NYT Data Delegate
 
 extension CriticsListViewController: NYTMoviesDataManagerDelegate {
+    func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel]) {
+        // TODO: Grab reviews data
+        print("Got that critic's reviews!")
+    }
+    
     
     func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel]) {
         self.critics = data
@@ -76,7 +82,7 @@ extension CriticsListViewController {
     // TODO: Make this function more generic
     func pushPicksVC(critic: CriticModel) {
         let picksVC = CriticsPicksViewController()
-        picksVC.criticData = critic
+        picksVC.critic = critic
         navigationController?.pushViewController(picksVC, animated: true)
     }
     
