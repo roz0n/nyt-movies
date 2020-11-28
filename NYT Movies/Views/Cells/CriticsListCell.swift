@@ -50,7 +50,6 @@ class CriticsListCell: UITableViewCell {
         
         view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         view.layer.cornerRadius = 40
         view.bounds = CGRect(x: 0, y: 0, width: photoSize, height: photoSize)
         view.layer.cornerRadius = photoSize / 2
@@ -74,13 +73,9 @@ class CriticsListCell: UITableViewCell {
     let nameText: UITextView = {
         let view = UITextView()
         
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isEditable = false
-        view.isScrollEnabled = false
-        view.isSelectable = false
+        view.isPresentational()
         view.clipsToBounds = true
         view.font = .systemFont(ofSize: 12, weight: .bold)
-//        view.text = "A.R. Criticgoy"
         view.backgroundColor = .green
         
         return view
@@ -89,13 +84,10 @@ class CriticsListCell: UITableViewCell {
     let bioText: UITextView = {
         let view = UITextView()
         
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isEditable = false
-        view.isScrollEnabled = false
-        view.isSelectable = false
+        view.isPresentational()
         view.clipsToBounds = true
+        view.textContainer.lineBreakMode = .byTruncatingTail
         view.font = .systemFont(ofSize: 12, weight: .regular)
-//        view.text = "He's just a goy from the citeh watchin flix and writin."
         
         return view
     }()

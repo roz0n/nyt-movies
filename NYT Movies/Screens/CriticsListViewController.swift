@@ -13,6 +13,7 @@ class CriticsListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = K.Colors.NYTBlack
     }
     
     override func viewDidLoad() {

@@ -10,11 +10,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        configureBarButtonItem()
         return true
+    }
+    
+    // MARK: UIBarButtonItem Configurations
+    func configureBarButtonItem() {
+        UIBarButtonItem.appearance().setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], for: .highlighted)
+        UIBarButtonItem.appearance().setTitleTextAttributes([ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], for: .focused)
     }
 
     // MARK: UISceneSession Lifecycle

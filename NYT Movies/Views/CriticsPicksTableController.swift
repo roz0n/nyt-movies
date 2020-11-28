@@ -1,5 +1,5 @@
 //
-//  CriticsPicksTableViewController.swift
+//  CriticsPicksTableController.swift
 //  NYT Movies
 //
 //  Created by Arnaldo Rozon on 11/28/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CriticsPicksTableViewController: UITableViewController {
+class CriticsPicksTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,7 +19,7 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+
         NYTMoviesDataManager.shared.delegate = self
         NYTMoviesDataManager.shared.fetchCriticReviews(of: (critic?.display_name)!)
         
@@ -28,7 +28,6 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
     
     let bioContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemIndigo
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -36,8 +35,18 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
     
     let tableContainer: UIView = {
         let view = UIView()
+
         view.backgroundColor = .systemPink
         view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    let bioText: UITextView = {
+        let view = UITextView()
+        
+        view.isPresentational()
+        view.font = .systemFont(ofSize: 12, weight: .regular)
         
         return view
     }()
@@ -50,6 +59,11 @@ extension CriticsPicksViewController {
     
     func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel]) {
         self.reviews = data
+        
+        DispatchQueue.main.async {
+            let bio = self.critic?.bio?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+            self.bioText.text = bio ?? "No bio available"
+        }
     }
     
     func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel]) {
@@ -70,6 +84,7 @@ extension CriticsPicksViewController {
         configureBioContainer()
         configureTableContainer()
         configureTableView()
+        configureBioText()
     }
     
     func configureBioContainer() {
@@ -78,7 +93,6 @@ extension CriticsPicksViewController {
             bioContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             bioContainer.leftAnchor.constraint(equalTo: view.leftAnchor),
             bioContainer.rightAnchor.constraint(equalTo: view.rightAnchor),
-            bioContainer.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     
@@ -93,13 +107,25 @@ extension CriticsPicksViewController {
     }
     
     func configureTableView() {
-        let tv = CriticsPicksTableViewController()
-        tableContainer.addSubview(tv.view)
+        let table = CriticsPicksTableController()
+        tableContainer.addSubview(table.view)
+        
         NSLayoutConstraint.activate([
-            tv.view.topAnchor.constraint(equalTo: tableContainer.topAnchor),
-            tv.view.leftAnchor.constraint(equalTo: tableContainer.leftAnchor),
-            tv.view.rightAnchor.constraint(equalTo: tableContainer.rightAnchor),
+            table.view.topAnchor.constraint(equalTo: tableContainer.topAnchor),
+            table.view.leftAnchor.constraint(equalTo: tableContainer.leftAnchor),
+            table.view.rightAnchor.constraint(equalTo: tableContainer.rightAnchor),
             tableContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func configureBioText() {
+        bioContainer.addSubview(bioText)
+        
+        NSLayoutConstraint.activate([
+            bioText.topAnchor.constraint(equalTo: bioContainer.topAnchor),
+            bioText.leftAnchor.constraint(equalTo: bioContainer.leftAnchor, constant: 10),
+            bioText.rightAnchor.constraint(equalTo: bioContainer.rightAnchor, constant: -10),
+            bioContainer.heightAnchor.constraint(equalTo: bioText.heightAnchor)
         ])
     }
 }
