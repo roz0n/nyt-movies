@@ -42,7 +42,7 @@
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ljn-KR-x89" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3tc-qB-oNy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ARR-wm-H4R" secondAttribute="bottom" constant="45" id="8wn-UN-XTd"/>
