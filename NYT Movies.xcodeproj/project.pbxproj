@@ -11,16 +11,17 @@
 		235DF366256EF39700DAFCC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF365256EF39700DAFCC0 /* SceneDelegate.swift */; };
 		235DF36D256EF39800DAFCC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235DF36C256EF39800DAFCC0 /* Assets.xcassets */; };
 		235DF370256EF39800DAFCC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235DF36E256EF39800DAFCC0 /* LaunchScreen.storyboard */; };
-		235DF381256EFA5D00DAFCC0 /* CriticsPicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF380256EFA5D00DAFCC0 /* CriticsPicksViewController.swift */; };
+		235DF381256EFA5D00DAFCC0 /* CriticsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF380256EFA5D00DAFCC0 /* CriticsListViewController.swift */; };
 		235DF385256EFA6A00DAFCC0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF384256EFA6A00DAFCC0 /* SearchViewController.swift */; };
 		235DF38C256EFAA700DAFCC0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF38B256EFAA700DAFCC0 /* FavoritesViewController.swift */; };
 		235DF390256F045B00DAFCC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF38F256F045B00DAFCC0 /* Constants.swift */; };
 		235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */; };
-		235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF39E256F312400DAFCC0 /* UIColor.swift */; };
-		235DF3A4256F366800DAFCC0 /* CriticsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* CriticsListTableViewCell.swift */; };
+		235DF39F256F312400DAFCC0 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF39E256F312400DAFCC0 /* UIColor+Ext.swift */; };
+		235DF3A4256F366800DAFCC0 /* CriticsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3A3256F366800DAFCC0 /* CriticsListCell.swift */; };
 		235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */; };
 		235DF3AF256F984200DAFCC0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 235DF3AE256F984200DAFCC0 /* Keys.plist */; };
 		235DF3B3256FA0A300DAFCC0 /* CriticsPicksDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */; };
+		23C75B372571E4E400E742A7 /* CriticsPicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C75B362571E4E400E742A7 /* CriticsPicksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,16 +31,17 @@
 		235DF36C256EF39800DAFCC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		235DF36F256EF39800DAFCC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		235DF371256EF39800DAFCC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		235DF380256EFA5D00DAFCC0 /* CriticsPicksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsPicksViewController.swift; sourceTree = "<group>"; };
+		235DF380256EFA5D00DAFCC0 /* CriticsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsListViewController.swift; sourceTree = "<group>"; };
 		235DF384256EFA6A00DAFCC0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		235DF38B256EFAA700DAFCC0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		235DF38F256F045B00DAFCC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViews.swift; sourceTree = "<group>"; };
-		235DF39E256F312400DAFCC0 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		235DF3A3256F366800DAFCC0 /* CriticsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsListTableViewCell.swift; sourceTree = "<group>"; };
+		235DF39E256F312400DAFCC0 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		235DF3A3256F366800DAFCC0 /* CriticsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsListCell.swift; sourceTree = "<group>"; };
 		235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NYTMoviesDataManager.swift; path = "NYT Movies/Services/NYTMoviesDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		235DF3AE256F984200DAFCC0 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		235DF3B2256FA0A300DAFCC0 /* CriticsPicksDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsPicksDataModels.swift; sourceTree = "<group>"; };
+		23C75B362571E4E400E742A7 /* CriticsPicksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsPicksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +90,7 @@
 		235DF37F256EFA4400DAFCC0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				235DF380256EFA5D00DAFCC0 /* CriticsPicksViewController.swift */,
+				235DF380256EFA5D00DAFCC0 /* CriticsListViewController.swift */,
 				235DF384256EFA6A00DAFCC0 /* SearchViewController.swift */,
 				235DF38B256EFAA700DAFCC0 /* FavoritesViewController.swift */,
 			);
@@ -109,6 +111,7 @@
 				235DF3B9256FB19500DAFCC0 /* Storyboards (Remove) */,
 				235DF3A2256F365000DAFCC0 /* Cells */,
 				235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */,
+				23C75B362571E4E400E742A7 /* CriticsPicksViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,7 +119,7 @@
 		235DF39D256F311400DAFCC0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				235DF39E256F312400DAFCC0 /* UIColor.swift */,
+				235DF39E256F312400DAFCC0 /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -124,7 +127,7 @@
 		235DF3A2256F365000DAFCC0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				235DF3A3256F366800DAFCC0 /* CriticsListTableViewCell.swift */,
+				235DF3A3256F366800DAFCC0 /* CriticsListCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -243,13 +246,14 @@
 			files = (
 				235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */,
 				235DF385256EFA6A00DAFCC0 /* SearchViewController.swift in Sources */,
+				23C75B372571E4E400E742A7 /* CriticsPicksViewController.swift in Sources */,
 				235DF3B3256FA0A300DAFCC0 /* CriticsPicksDataModels.swift in Sources */,
-				235DF3A4256F366800DAFCC0 /* CriticsListTableViewCell.swift in Sources */,
+				235DF3A4256F366800DAFCC0 /* CriticsListCell.swift in Sources */,
 				235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */,
-				235DF381256EFA5D00DAFCC0 /* CriticsPicksViewController.swift in Sources */,
+				235DF381256EFA5D00DAFCC0 /* CriticsListViewController.swift in Sources */,
 				235DF390256F045B00DAFCC0 /* Constants.swift in Sources */,
 				235DF38C256EFAA700DAFCC0 /* FavoritesViewController.swift in Sources */,
-				235DF39F256F312400DAFCC0 /* UIColor.swift in Sources */,
+				235DF39F256F312400DAFCC0 /* UIColor+Ext.swift in Sources */,
 				235DF397256F19E000DAFCC0 /* EmptyStateViews.swift in Sources */,
 				235DF366256EF39700DAFCC0 /* SceneDelegate.swift in Sources */,
 			);

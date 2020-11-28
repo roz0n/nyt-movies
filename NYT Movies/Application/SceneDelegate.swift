@@ -67,7 +67,7 @@ extension SceneDelegate {
     }
     
     func configurePicksVC() -> UINavigationController {
-        let vc = CriticsPicksViewController()
+        let vc = CriticsListViewController()
         let icon = UIImage(systemName: "film.fill")
         let title = "Critics' Picks"
         

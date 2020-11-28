@@ -36,6 +36,7 @@ struct EmptyStateViews {
                 view.textAlignment = .center
                 view.backgroundColor = .none
                 view.font = .systemFont(ofSize: 16, weight: .regular)
+                view.textColor = .systemGray2
                 
                 return view
             }()

@@ -1,5 +1,5 @@
 //
-//  CriticsListTableViewCell.swift
+//  CriticsListCell.swift
 //  NYT Movies
 //
 //  Created by Arnaldo Rozon on 11/25/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CriticsListTableViewCell: UITableViewCell {
+class CriticsListCell: UITableViewCell {
     
     static let reuseId = "criticsCell"
     static let cellSize = CGFloat(100)
@@ -22,7 +22,7 @@ class CriticsListTableViewCell: UITableViewCell {
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: CriticsListTableViewCell.reuseId)
+        super.init(style: style, reuseIdentifier: CriticsListCell.reuseId)
         configureLayout()
     }
     
@@ -103,7 +103,7 @@ class CriticsListTableViewCell: UITableViewCell {
 
 // MARK: - Layout Configuration
 
-extension CriticsListTableViewCell {
+extension CriticsListCell {
     
     func configureLayout() {
         configurePhotoWrapper()
@@ -119,8 +119,8 @@ extension CriticsListTableViewCell {
         NSLayoutConstraint.activate([
             photoWrapper.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
             photoWrapper.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            photoWrapper.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellSize),
-            photoWrapper.widthAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellSize)
+            photoWrapper.heightAnchor.constraint(equalToConstant: CriticsListCell.cellSize),
+            photoWrapper.widthAnchor.constraint(equalToConstant: CriticsListCell.cellSize)
         ])
     }
     
@@ -132,7 +132,7 @@ extension CriticsListTableViewCell {
             photoContainer.centerYAnchor.constraint(equalTo: photoWrapper.centerYAnchor),
             photoContainer.leadingAnchor.constraint(equalTo: photoWrapper.leadingAnchor, constant: 12),
             photoContainer.trailingAnchor.constraint(equalTo: photoWrapper.trailingAnchor, constant: -12),
-            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.photoSize)
+            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListCell.photoSize)
         ])
     }
     
@@ -142,7 +142,7 @@ extension CriticsListTableViewCell {
             infoContainer.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
             infoContainer.leadingAnchor.constraint(equalTo: photoWrapper.trailingAnchor),
             infoContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            infoContainer.heightAnchor.constraint(equalToConstant: CriticsListTableViewCell.cellSize)
+            infoContainer.heightAnchor.constraint(equalToConstant: CriticsListCell.cellSize)
         ])
     }
     
