@@ -49,6 +49,8 @@ class CriticsPicksViewController: UIViewController {
         return view
     }()
     
+    let table = CriticsPicksTableController()
+    
 }
 
 // MARK: - Data Fetching
@@ -71,7 +73,11 @@ extension CriticsPicksViewController {
                 }
             }
             
-            DispatchQueue.main.async { self.bioText.text = self.critic?.bio }
+            DispatchQueue.main.async {
+                self.bioText.text = self.critic?.bio
+                self.table.reviews = self.reviews
+                self.table.tableView.reloadData()
+            }
         }
     }
     
@@ -108,9 +114,7 @@ extension CriticsPicksViewController {
     }
     
     func configureTableView() {
-        let table = CriticsPicksTableController()
         tableContainer.addSubview(table.view)
-        
         NSLayoutConstraint.activate([
             table.view.topAnchor.constraint(equalTo: tableContainer.topAnchor),
             table.view.leftAnchor.constraint(equalTo: tableContainer.leftAnchor),

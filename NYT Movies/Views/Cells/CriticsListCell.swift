@@ -82,14 +82,14 @@ class CriticsListCell: UITableViewCell {
     }()
     
     let bioText: UITextView = {
-        let view = UITextView()
+        let text = UITextView()
         
-        view.isPresentational()
-        view.clipsToBounds = true
-        view.textContainer.lineBreakMode = .byTruncatingTail
-        view.font = .systemFont(ofSize: 12, weight: .regular)
+        text.isPresentational()
+        text.clipsToBounds = true
+        text.textContainer.lineBreakMode = .byTruncatingTail
+        text.font = .systemFont(ofSize: 12, weight: .regular)
         
-        return view
+        return text
     }()
 }
 

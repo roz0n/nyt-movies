@@ -49,7 +49,6 @@ extension CriticsListViewController {
             
             if let results = $0?.results {
                 self.critics = results
-                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

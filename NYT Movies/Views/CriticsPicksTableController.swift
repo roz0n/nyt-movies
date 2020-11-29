@@ -9,6 +9,8 @@ import UIKit
 
 class CriticsPicksTableController: UITableViewController {
     
+    var reviews: [CriticReviewModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,11 +26,16 @@ class CriticsPicksTableController: UITableViewController {
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 99
+        return reviews?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsPicksCell.reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsPicksCell.reuseId, for: indexPath) as! CriticsPicksCell
+        
+        if let data = reviews?[indexPath.row] {
+            cell.reviewData = data
+        }
+        
         return cell
     }
 
