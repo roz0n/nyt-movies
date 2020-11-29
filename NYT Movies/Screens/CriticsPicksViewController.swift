@@ -19,32 +19,9 @@ class CriticsPicksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
         configureLayouts()
         getCriticsReviewsData()
-    }
-    
-    func getCriticsReviewsData() {
-        let rawUrl = (NYTMoviesDataManager.shared.getEndpoint(for: "criticsReviews", reviewer: (critic?.display_name)!) + NYTMoviesDataManager.shared.attachApiKey())
-        let formattedUrl = rawUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        if let endpoint = formattedUrl {
-            NYTMoviesDataManager.shared.getData(endpoint: endpoint, model: NYTDataResponseModelReview.self) {
-                if $1 != nil {
-                    // TODO: Handle error
-                    print("Error getting reviews data :(")
-                }
-                
-                if let data = $0?.results {
-                    self.reviews = data
-                    print("Reviews:")
-                    print(data)
-                }
-                
-                DispatchQueue.main.async {
-                    self.bioText.text = self.critic?.bio
-                }
-            }
-        }
     }
     
     let bioContainer: UIView = {
@@ -71,6 +48,32 @@ class CriticsPicksViewController: UIViewController {
         
         return view
     }()
+    
+}
+
+// MARK: - Data Fetching
+
+extension CriticsPicksViewController {
+    
+    func getCriticsReviewsData() {
+        let rawUrl = (NYTMoviesDataManager.shared.getEndpoint(for: "criticsReviews", reviewer: (critic?.display_name)!) + NYTMoviesDataManager.shared.attachApiKey())
+        let formattedUrl = rawUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        if let endpoint = formattedUrl {
+            NYTMoviesDataManager.shared.getData(endpoint: endpoint, model: NYTDataResponseModelReview.self) {
+                if $1 != nil {
+                    // TODO: Handle error
+                    print("Error getting reviews data :(")
+                }
+                
+                if let data = $0?.results {
+                    self.reviews = data
+                }
+            }
+            
+            DispatchQueue.main.async { self.bioText.text = self.critic?.bio }
+        }
+    }
     
 }
 

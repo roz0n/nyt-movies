@@ -39,7 +39,7 @@ class NYTMoviesDataManager {
         guard let url = URL(string: endpoint) else { return }
         let session = URLSession(configuration: .default)
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        session.dataTask(with: url) { (data, response, error) in
             if error != nil { return }
             guard let data = data else { return }
             
@@ -49,8 +49,7 @@ class NYTMoviesDataManager {
             } catch {
                 completion(nil, error)
             }
-        }
-        task.resume()
+        }.resume()
     }
     
 }
