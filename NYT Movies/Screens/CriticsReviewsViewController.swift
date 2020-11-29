@@ -1,5 +1,5 @@
 //
-//  CriticsPicksViewController.swift
+//  CriticsReviewsViewController.swift
 //  NYT Movies
 //
 //  Created by Arnaldo Rozon on 11/27/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CriticsPicksViewController: UIViewController {
+class CriticsReviewsViewController: UIViewController {
     
     var critic: CriticModel?
     var reviews: [CriticReviewModel]?
@@ -49,20 +49,20 @@ class CriticsPicksViewController: UIViewController {
         return view
     }()
     
-    let table = CriticsPicksTableController()
+    let table = CriticsReviewsTableControler()
     
 }
 
 // MARK: - Data Fetching
 
-extension CriticsPicksViewController {
+extension CriticsReviewsViewController {
     
     func getCriticsReviewsData() {
         let rawUrl = (NYTMoviesDataManager.shared.getEndpoint(for: "criticsReviews", reviewer: (critic?.display_name)!) + NYTMoviesDataManager.shared.attachApiKey())
         let formattedUrl = rawUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         if let endpoint = formattedUrl {
-            NYTMoviesDataManager.shared.getData(endpoint: endpoint, model: NYTDataResponseModelReview.self) {
+            NYTMoviesDataManager.shared.getData(endpoint: endpoint, model: NYTCriticsReviewsResponseModel.self) {
                 if $1 != nil {
                     // TODO: Handle error
                     print("Error getting reviews data :(")
@@ -85,7 +85,7 @@ extension CriticsPicksViewController {
 
 // MARK: - Layout Configurations
 
-extension CriticsPicksViewController {
+extension CriticsReviewsViewController {
     
     func configureLayouts() {
         configureBioContainer()

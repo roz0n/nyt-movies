@@ -1,5 +1,5 @@
 //
-//  CriticsPicksCell.swift
+//  CriticsReviewCell.swift
 //  NYT Movies
 //
 //  Created by Arnaldo Rozon on 11/28/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CriticsPicksCell: UITableViewCell {
+class CriticsReviewCell: UITableViewCell {
     
     static let reuseId = "criticsPickCell"
     static let cellSize = CGFloat(75)
@@ -15,14 +15,13 @@ class CriticsPicksCell: UITableViewCell {
     var reviewData: CriticReviewModel? {
         didSet {
             guard let reviewData = reviewData else { return }
-            print(reviewData)
             headlineText.text = reviewData.headline
             summaryText.text = reviewData.summary_short
         }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: CriticsPicksCell.reuseId)
+        super.init(style: style, reuseIdentifier: CriticsReviewCell.reuseId)
         configureLayout()
     }
     
@@ -61,7 +60,7 @@ class CriticsPicksCell: UITableViewCell {
     }()
 }
 
-extension CriticsPicksCell {
+extension CriticsReviewCell {
     
     func configureLayout() {
         configureTextContainer()
@@ -85,7 +84,7 @@ extension CriticsPicksCell {
             headlineText.topAnchor.constraint(equalTo: textContainer.topAnchor),
             headlineText.leftAnchor.constraint(equalTo: textContainer.leftAnchor),
             headlineText.rightAnchor.constraint(equalTo: textContainer.rightAnchor),
-            headlineText.heightAnchor.constraint(equalToConstant: CriticsPicksCell.cellSize)
+            headlineText.heightAnchor.constraint(equalToConstant: CriticsReviewCell.cellSize)
         ])
     }
 

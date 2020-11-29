@@ -1,5 +1,5 @@
 //
-//  CriticsPicksTableController.swift
+//  CriticsReviewsTableControler.swift
 //  NYT Movies
 //
 //  Created by Arnaldo Rozon on 11/28/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CriticsPicksTableController: UITableViewController {
+class CriticsReviewsTableControler: UITableViewController {
     
     var reviews: [CriticReviewModel]?
     
@@ -20,7 +20,7 @@ class CriticsPicksTableController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.register(CriticsPicksCell.self, forCellReuseIdentifier: CriticsPicksCell.reuseId)
+        tableView.register(CriticsReviewCell.self, forCellReuseIdentifier: CriticsReviewCell.reuseId)
     }
 
     // MARK: - Table View
@@ -30,13 +30,19 @@ class CriticsPicksTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsPicksCell.reuseId, for: indexPath) as! CriticsPicksCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CriticsReviewCell.reuseId, for: indexPath) as! CriticsReviewCell
         
         if let data = reviews?[indexPath.row] {
             cell.reviewData = data
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected row \(String(indexPath.row))")
+        let vc = ReviewWebViewController()
+        present(vc, animated: true, completion: nil)
     }
 
     /*

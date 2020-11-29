@@ -31,7 +31,7 @@ extension CriticsListViewController {
     
     // TODO: Make this function more generic
     func pushPicksVC(critic: CriticModel) {
-        let picksVC = CriticsPicksViewController()
+        let picksVC = CriticsReviewsViewController()
         picksVC.critic = critic
         navigationController?.pushViewController(picksVC, animated: true)
     }
@@ -41,7 +41,7 @@ extension CriticsListViewController {
 extension CriticsListViewController {
     
     func getCriticsListData() {
-        NYTMoviesDataManager.shared.getData(endpoint: self.endpoint, model: NYTDataResponseModel.self) {
+        NYTMoviesDataManager.shared.getData(endpoint: self.endpoint, model: NYTCriticResponseModel.self) {
             if $1 != nil {
                 // TODO: Handle error
                 print("Error getting data :(")
