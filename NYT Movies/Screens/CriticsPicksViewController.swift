@@ -66,9 +66,7 @@ extension CriticsPicksViewController {
         }
     }
     
-    func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel]) {
-        
-    }
+//    func didUpdateData(from service: NYTMoviesDataManager, _ data: NYTDataResponseModel) {}
     
     func didError(from service: NYTMoviesDataManager, _ error: String) {
         print("Error: CriticsPicks View")

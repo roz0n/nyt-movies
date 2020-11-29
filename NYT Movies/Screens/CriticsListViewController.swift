@@ -10,6 +10,7 @@ import UIKit
 class CriticsListViewController: UITableViewController {
     
     var critics: [CriticModel]?
+    let endpoint = (NYTMoviesDataManager.shared.getEndpoint(for: "criticsList", reviewer: nil) + NYTMoviesDataManager.shared.attachApiKey())
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -19,9 +20,40 @@ class CriticsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(CriticsListCell.self, forCellReuseIdentifier: CriticsListCell.reuseId)
-        
-        NYTMoviesDataManager.shared.delegate = self
-        NYTMoviesDataManager.shared.fetchCriticData()
+    }
+    
+}
+
+// MARK: - Navigation
+
+extension CriticsListViewController {
+    
+    // TODO: Make this function more generic
+    func pushPicksVC(critic: CriticModel) {
+        let picksVC = CriticsPicksViewController()
+        picksVC.critic = critic
+        navigationController?.pushViewController(picksVC, animated: true)
+    }
+    
+}
+
+extension CriticsListViewController {
+    
+    func getCriticsListData() {
+        NYTMoviesDataManager.shared.getData(endpoint: self.endpoint, model: NYTDataResponseModel.self) {
+            if $1 != nil {
+                // TODO: Handle error
+                print("Error getting data :(")
+            }
+            
+            if let results = $0?.results {
+                self.critics = results
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
 }
@@ -48,44 +80,6 @@ extension CriticsListViewController {
         guard let critics = critics else { return }
         let selectedCritic = critics[indexPath.row]
         self.pushPicksVC(critic: selectedCritic)
-    }
-    
-}
-
-// MARK: - NYT Data Delegate
-
-extension CriticsListViewController: NYTMoviesDataManagerDelegate {
-    
-    func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel]) {
-        // TODO: Grab reviews data
-        print("Got that critic's reviews!")
-    }
-    
-    
-    func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel]) {
-        self.critics = data
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    func didError(from service: NYTMoviesDataManager, _ error: String) {
-        print("Error fetching data... :(")
-        print(error)
-    }
-    
-}
-
-// MARK: - Navigation
-
-extension CriticsListViewController {
-    
-    // TODO: Make this function more generic
-    func pushPicksVC(critic: CriticModel) {
-        let picksVC = CriticsPicksViewController()
-        picksVC.critic = critic
-        navigationController?.pushViewController(picksVC, animated: true)
     }
     
 }

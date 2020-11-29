@@ -8,7 +8,7 @@
 // TODO: Lots of repetition with the response models, but how can we make types implicit while ahering to Codble?
 
 struct NYTDataResponseModel: Codable {
-    let results: [CriticModel]
+    var results: [CriticModel]?
 }
 
 struct NYTDataResponseModelReview: Codable {

@@ -16,7 +16,7 @@ import Foundation
  **/
 
 protocol NYTMoviesDataManagerDelegate {
-    func didUpdateData(from service: NYTMoviesDataManager, _ data: [CriticModel])
+//    func didUpdateData<T>(from service: NYTMoviesDataManager, _ data: T) where T: Decodable
     
     // TODO: Figure out how to make this protocol optional
     func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel])
@@ -26,6 +26,7 @@ protocol NYTMoviesDataManagerDelegate {
 class NYTMoviesDataManager {
     
     var delegate: NYTMoviesDataManagerDelegate?
+    
     static let shared = NYTMoviesDataManager()
     
     func getEndpoint(for resource: String, reviewer: String?) -> String {
@@ -52,36 +53,29 @@ class NYTMoviesDataManager {
         return "&api-key=\(apiKey ?? "key-error")"
     }
     
-    func fetchCriticData() {
-        let endpoint = getEndpoint(for: "criticsList", reviewer: nil) + attachApiKey()
+    func getData<T>(endpoint: String, model: T.Type, completion: @escaping (_ parsedResponse: T?, _ error: Error?) -> Void) where T: Decodable {
         guard let url = URL(string: endpoint) else { return }
         let session = URLSession(configuration: .default)
         
-        DispatchQueue.global().async {
-            let task = session.dataTask(with: url) { (data, _, error) in
-                if error != nil {
-                    // TODO: Present modal as this error means a failure is not related to NYT but to some issue with the device connection or API key
-                    return
-                }
-                
-                if let data = data {
-                    if let criticData: NYTDataResponseModel = self.parseJSON(data) {
-                        self.delegate?.didUpdateData(from: self, criticData.results)
-                    } else {
-                        self.delegate?.didError(from: self, "Error decoding critics data!")
-                    }
-                }
-            }
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if error != nil { return }
+            guard let data = data else { return }
             
-            task.resume()
+            do {
+                let responseData = try JSONDecoder().decode(model.self, from: data)
+                completion(responseData, nil)
+            } catch {
+                completion(nil, error)
+            }
         }
+        task.resume()
     }
     
     // TODO: Lots of repitition here..
     
     func fetchCriticReviews(of name: String) {
         let endpoint = (getEndpoint(for: "criticsReviews", reviewer: name) + attachApiKey()).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-                
+        
         guard let url = URL(string: endpoint!) else { return }
         let session = URLSession(configuration: .default)
         
@@ -111,17 +105,6 @@ class NYTMoviesDataManager {
 extension NYTMoviesDataManager {
     
     // TODO: Use a generic return type here to make this more extensible like the comment at the start of this file implies
-    
-    func parseJSON(_ data: Data) -> NYTDataResponseModel? {
-        let decoder = JSONDecoder()
-        
-        do {
-            let decodedData = try decoder.decode(NYTDataResponseModel.self, from: data)
-            return NYTDataResponseModel(results: decodedData.results)
-        } catch {
-            return nil
-        }
-    }
     
     func parseJSON2(_ data: Data) -> NYTDataResponseModelReview? {
         let decoder = JSONDecoder()
