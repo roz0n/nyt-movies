@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate {
+class CriticsPicksViewController: UIViewController {
     
     var critic: CriticModel?
     var reviews: [CriticReviewModel]?
@@ -19,11 +19,32 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
-        NYTMoviesDataManager.shared.delegate = self
-        NYTMoviesDataManager.shared.fetchCriticReviews(of: (critic?.display_name)!)
-        
         configureLayouts()
+        getCriticsReviewsData()
+    }
+    
+    func getCriticsReviewsData() {
+        let rawUrl = (NYTMoviesDataManager.shared.getEndpoint(for: "criticsReviews", reviewer: (critic?.display_name)!) + NYTMoviesDataManager.shared.attachApiKey())
+        let formattedUrl = rawUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        if let endpoint = formattedUrl {
+            NYTMoviesDataManager.shared.getData(endpoint: endpoint, model: NYTDataResponseModelReview.self) {
+                if $1 != nil {
+                    // TODO: Handle error
+                    print("Error getting reviews data :(")
+                }
+                
+                if let data = $0?.results {
+                    self.reviews = data
+                    print("Reviews:")
+                    print(data)
+                }
+                
+                DispatchQueue.main.async {
+                    self.bioText.text = self.critic?.bio
+                }
+            }
+        }
     }
     
     let bioContainer: UIView = {
@@ -35,7 +56,7 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
     
     let tableContainer: UIView = {
         let view = UIView()
-
+        
         view.backgroundColor = .systemPink
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,27 +71,6 @@ class CriticsPicksViewController: UIViewController, NYTMoviesDataManagerDelegate
         
         return view
     }()
-    
-}
-
-// MARK: - NYT Data Delegate
-
-extension CriticsPicksViewController {
-    
-    func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel]) {
-        self.reviews = data
-        
-        DispatchQueue.main.async {
-            let bio = self.critic?.bio?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-            self.bioText.text = bio ?? "No bio available"
-        }
-    }
-    
-//    func didUpdateData(from service: NYTMoviesDataManager, _ data: NYTDataResponseModel) {}
-    
-    func didError(from service: NYTMoviesDataManager, _ error: String) {
-        print("Error: CriticsPicks View")
-    }
     
 }
 

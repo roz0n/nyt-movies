@@ -20,6 +20,7 @@ class CriticsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(CriticsListCell.self, forCellReuseIdentifier: CriticsListCell.reuseId)
+        getCriticsListData()
     }
     
 }

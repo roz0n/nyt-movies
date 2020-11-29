@@ -7,26 +7,8 @@
 
 import Foundation
 
-/*
- 
- This code is pretty wet (sherm, angel dust, pcp...) and bit of mess at the moment.
- TODO: refactor this class, its extension(s), and its delegate protocol to handle all API data types, not just Critics as it does now.
- There's also a ton of repetition and some jive code to generate the URL, but it's ok for now while we build out the UI.
- 
- **/
-
-protocol NYTMoviesDataManagerDelegate {
-//    func didUpdateData<T>(from service: NYTMoviesDataManager, _ data: T) where T: Decodable
-    
-    // TODO: Figure out how to make this protocol optional
-    func didUpdateCriticReviews(from service: NYTMoviesDataManager, _ data: [CriticReviewModel])
-    func didError(from service: NYTMoviesDataManager, _ error: String)
-}
-
 class NYTMoviesDataManager {
-    
-    var delegate: NYTMoviesDataManagerDelegate?
-    
+        
     static let shared = NYTMoviesDataManager()
     
     func getEndpoint(for resource: String, reviewer: String?) -> String {
@@ -69,52 +51,6 @@ class NYTMoviesDataManager {
             }
         }
         task.resume()
-    }
-    
-    // TODO: Lots of repitition here..
-    
-    func fetchCriticReviews(of name: String) {
-        let endpoint = (getEndpoint(for: "criticsReviews", reviewer: name) + attachApiKey()).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        guard let url = URL(string: endpoint!) else { return }
-        let session = URLSession(configuration: .default)
-        
-        let task = session.dataTask(with: url) { (data, _, error) in
-            if error != nil {
-                // TODO: Present modal as this error means a failure is not related to NYT but to some issue with the device connection or API key
-                return
-            }
-            
-            guard let data = data else { return }
-            
-            if let criticReviews: NYTDataResponseModelReview = self.parseJSON2(data) {
-                self.delegate?.didUpdateCriticReviews(from: self, criticReviews.results)
-            } else {
-                self.delegate?.didError(from: self, "Error decoding critics reviews data!")
-            }
-        }
-        
-        task.resume()
-    }
-    
-}
-
-
-// MARK: - Data Utils
-
-extension NYTMoviesDataManager {
-    
-    // TODO: Use a generic return type here to make this more extensible like the comment at the start of this file implies
-    
-    func parseJSON2(_ data: Data) -> NYTDataResponseModelReview? {
-        let decoder = JSONDecoder()
-        
-        do {
-            let decodedData = try decoder.decode(NYTDataResponseModelReview.self, from: data)
-            return NYTDataResponseModelReview(results: decodedData.results)
-        } catch {
-            return nil
-        }
     }
     
 }
