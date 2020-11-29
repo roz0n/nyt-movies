@@ -12,12 +12,7 @@ class NYTMoviesDataManager {
     static let shared = NYTMoviesDataManager()
     
     func getEndpoint(for resource: String, reviewer: String?) -> String {
-        let endpoints = [
-            "criticsList": "https://api.nytimes.com/svc/movies/v2/critics/all.json?",
-            "criticsReviews": "https://api.nytimes.com/svc/movies/v2/reviews/search.json?reviewer="
-        ]
-        
-        return (endpoints[resource]! + (reviewer ?? ""))
+        return (K.API.endpoints[resource]! + (reviewer ?? ""))
     }
     
     func attachApiKey() -> String {
@@ -31,7 +26,6 @@ class NYTMoviesDataManager {
             }
         }
         
-        // TODO: Put url is some contants file pls
         return "&api-key=\(apiKey ?? "key-error")"
     }
     

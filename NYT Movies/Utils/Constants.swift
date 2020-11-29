@@ -9,6 +9,13 @@ import UIKit
 
 struct K {
     
+    struct API {
+        static let endpoints = [
+            "criticsList": "https://api.nytimes.com/svc/movies/v2/critics/all.json?",
+            "criticsReviews": "https://api.nytimes.com/svc/movies/v2/reviews/search.json?reviewer="
+        ]
+    }
+    
     struct Colors {
         static let NYTWhite = UIColor(r: 248, g: 247, b: 247, a: 1)
         static let NYTBlack = UIColor(r: 12, g: 12, b: 13, a: 1)
