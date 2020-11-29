@@ -10,7 +10,7 @@ import UIKit
 class CriticsReviewCell: UITableViewCell {
     
     static let reuseId = "criticsPickCell"
-    static let cellSize = CGFloat(75)
+    static let cellSize = CGFloat(100)
     
     var reviewData: CriticReviewModel? {
         didSet {
@@ -65,6 +65,7 @@ extension CriticsReviewCell {
     func configureLayout() {
         configureTextContainer()
         configureHeadlineText()
+        configureSummaryText()
     }
     
     func configureTextContainer() {
@@ -84,7 +85,16 @@ extension CriticsReviewCell {
             headlineText.topAnchor.constraint(equalTo: textContainer.topAnchor),
             headlineText.leftAnchor.constraint(equalTo: textContainer.leftAnchor),
             headlineText.rightAnchor.constraint(equalTo: textContainer.rightAnchor),
-            headlineText.heightAnchor.constraint(equalToConstant: CriticsReviewCell.cellSize)
+        ])
+    }
+    
+    func configureSummaryText() {
+        textContainer.addSubview(summaryText)
+        summaryText.backgroundColor = .green
+        NSLayoutConstraint.activate([
+            summaryText.topAnchor.constraint(equalTo: headlineText.bottomAnchor),
+            summaryText.leftAnchor.constraint(equalTo: headlineText.leftAnchor),
+            summaryText.rightAnchor.constraint(equalTo: headlineText.rightAnchor)
         ])
     }
 

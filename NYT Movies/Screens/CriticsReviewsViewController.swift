@@ -49,7 +49,7 @@ class CriticsReviewsViewController: UIViewController {
         return view
     }()
     
-    let table = CriticsReviewsTableControler()
+    let table = CriticsReviewsTableController()
     
 }
 
