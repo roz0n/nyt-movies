@@ -27,7 +27,7 @@ class CriticsReviewsTableController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: Do we really need this set?
-        tableView.rowHeight = CriticsReviewCell.cellSize
+//        tableView.rowHeight = CriticsReviewCell.cellSize
         return reviews?.count ?? 0
     }
 

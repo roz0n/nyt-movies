@@ -10,7 +10,6 @@ import UIKit
 class CriticsReviewCell: UITableViewCell {
     
     static let reuseId = "criticsPickCell"
-    static let cellSize = CGFloat(100)
     
     var reviewData: CriticReviewModel? {
         didSet {
@@ -74,7 +73,7 @@ extension CriticsReviewCell {
             textContainer.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             textContainer.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
             textContainer.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
-            textContainer.heightAnchor.constraint(equalTo: self.contentView.heightAnchor)
+            textContainer.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
     }
     
@@ -94,7 +93,8 @@ extension CriticsReviewCell {
         NSLayoutConstraint.activate([
             summaryText.topAnchor.constraint(equalTo: headlineText.bottomAnchor),
             summaryText.leftAnchor.constraint(equalTo: headlineText.leftAnchor),
-            summaryText.rightAnchor.constraint(equalTo: headlineText.rightAnchor)
+            summaryText.rightAnchor.constraint(equalTo: headlineText.rightAnchor),
+            summaryText.bottomAnchor.constraint(equalTo: textContainer.bottomAnchor)
         ])
     }
 

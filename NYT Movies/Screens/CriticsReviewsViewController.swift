@@ -96,6 +96,7 @@ extension CriticsReviewsViewController {
     
     func configureBioContainer() {
         view.addSubview(bioContainer)
+        bioContainer.backgroundColor = .brown
         NSLayoutConstraint.activate([
             bioContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             bioContainer.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -105,6 +106,7 @@ extension CriticsReviewsViewController {
     
     func configureTableContainer() {
         view.addSubview(tableContainer)
+        tableContainer.backgroundColor = .red
         NSLayoutConstraint.activate([
             tableContainer.topAnchor.constraint(equalTo: bioContainer.bottomAnchor),
             tableContainer.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -125,7 +127,6 @@ extension CriticsReviewsViewController {
     
     func configureBioText() {
         bioContainer.addSubview(bioText)
-        
         NSLayoutConstraint.activate([
             bioText.topAnchor.constraint(equalTo: bioContainer.topAnchor),
             bioText.leftAnchor.constraint(equalTo: bioContainer.leftAnchor, constant: 10),
