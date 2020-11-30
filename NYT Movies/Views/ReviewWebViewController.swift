@@ -6,25 +6,48 @@
 //
 
 import UIKit
+import WebKit
 
-class ReviewWebViewController: UIViewController {
+class ReviewWebViewController: UIViewController, WKUIDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .systemPink
+    var webView: WKWebView!
+    var link: String
+    
+    init(with link: String) {
+        self.link = link
+        super.init(nibName: nil, bundle: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
+    
+    // TODO: This view will have to be embeded in another view controller for this to work
+    func configureToolbar() {
+        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleCloseButton))
+    }
+    
+    @objc func handleCloseButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func loadView() {
+        let config = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: config)
+        webView.uiDelegate = self
+        view = webView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureToolbar()
+        loadUrl(self.link)
+    }
+    
+    func loadUrl(_ link: String) {
+        let site = URL(string: link)
+        let req = URLRequest(url: site!)
+        webView.load(req)
+    }
 
 }

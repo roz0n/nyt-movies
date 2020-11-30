@@ -26,8 +26,6 @@ class CriticsReviewsTableController: UITableViewController {
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Do we really need this set?
-//        tableView.rowHeight = CriticsReviewCell.cellSize
         return reviews?.count ?? 0
     }
 
@@ -42,8 +40,15 @@ class CriticsReviewsTableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row \(String(indexPath.row))")
-        let vc = ReviewWebViewController()
+        if let reviewLink = self.reviews?[indexPath.row].link.url {
+            let formattedLink = reviewLink.replacingOccurrences(of: "http://", with: "https://")
+            presentWebView(formattedLink)
+        }
+    }
+    
+    func presentWebView(_ link: String) {
+        let vc = ReviewWebViewController(with: link)
+        vc.modalPresentationStyle = .pageSheet
         present(vc, animated: true, completion: nil)
     }
     
