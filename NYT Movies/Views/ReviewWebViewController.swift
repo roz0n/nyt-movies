@@ -22,7 +22,6 @@ class ReviewWebViewController: UIViewController, WKUIDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // TODO: This view will have to be embeded in another view controller for this to work
     func configureToolbar() {
         navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleCloseButton))
     }

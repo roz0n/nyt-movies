@@ -6,16 +6,18 @@
 //
 
 import UIKit
+import SafariServices
 
-class CriticsReviewsTableController: UITableViewController {
+class CriticsReviewsTableController: UITableViewController, SFSafariViewControllerDelegate {
     
     var reviews: [CriticReviewModel]?
+    var svc: SFSafariViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -42,14 +44,30 @@ class CriticsReviewsTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let reviewLink = self.reviews?[indexPath.row].link.url {
             let formattedLink = reviewLink.replacingOccurrences(of: "http://", with: "https://")
-            presentWebView(formattedLink)
+            let url = URL(string: formattedLink)
+            
+            configureSVC(url!)
+            presentSVC()
+        }
+    }
+
+    func presentSVC() {
+        // Don't forget, Apple hates you: https://stackoverflow.com/questions/57134259
+        let keyVC = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController!
+        
+        if let keyVC = keyVC {
+            keyVC.present(svc, animated: true, completion: nil)
         }
     }
     
-    func presentWebView(_ link: String) {
-        let vc = ReviewWebViewController(with: link)
-        vc.modalPresentationStyle = .pageSheet
-        present(vc, animated: true, completion: nil)
+    func configureSVC(_ link: URL) {
+        let config = SFSafariViewController.Configuration()
+        
+        config.entersReaderIfAvailable = true
+        config.barCollapsingEnabled = true
+        
+        svc = SFSafariViewController(url: link, configuration: config)
+        svc.delegate = self
     }
     
 }
