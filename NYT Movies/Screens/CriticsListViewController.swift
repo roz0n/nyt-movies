@@ -15,6 +15,10 @@ class CriticsListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = K.Colors.NYTBlack
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -33,6 +37,7 @@ extension CriticsListViewController {
     func pushPicksVC(critic: CriticModel) {
         let picksVC = CriticsReviewsViewController()
         picksVC.critic = critic
+        
         navigationController?.pushViewController(picksVC, animated: true)
     }
     
@@ -79,7 +84,7 @@ extension CriticsListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let critics = critics else { return }
         let selectedCritic = critics[indexPath.row]
-        self.pushPicksVC(critic: selectedCritic)
+        pushPicksVC(critic: selectedCritic)
     }
     
 }

@@ -69,7 +69,7 @@ extension SceneDelegate {
     func configurePicksVC() -> UINavigationController {
         let vc = CriticsListViewController()
         let icon = UIImage(systemName: "film.fill")
-        let title = "Critics' Picks"
+        let title = "Critics"
         
         vc.title = title
         vc.tabBarItem = UITabBarItem(title: title, image: icon, tag: 0)

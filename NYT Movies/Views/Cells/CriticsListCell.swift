@@ -71,7 +71,6 @@ class CriticsListCell: UITableViewCell {
     let infoContainer: UIView = {
         let view = UIView()
 
-        view.backgroundColor = .cyan
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
         
@@ -86,7 +85,6 @@ class CriticsListCell: UITableViewCell {
         view.isPresentational()
         view.clipsToBounds = true
         view.font = .systemFont(ofSize: 12, weight: .bold)
-        view.backgroundColor = .green
         
         return view
     }()

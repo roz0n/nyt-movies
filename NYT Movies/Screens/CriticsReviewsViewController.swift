@@ -70,13 +70,13 @@ extension CriticsReviewsViewController {
                 
                 if let data = $0?.results {
                     self.reviews = data
+                    
+                    DispatchQueue.main.async {
+                        self.bioText.text = self.critic?.bio
+                        self.table.reviews = self.reviews
+                        self.table.tableView.reloadData()
+                    }
                 }
-            }
-            
-            DispatchQueue.main.async {
-                self.bioText.text = self.critic?.bio
-                self.table.reviews = self.reviews
-                self.table.tableView.reloadData()
             }
         }
     }

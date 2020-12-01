@@ -33,17 +33,19 @@ class NYTMoviesDataManager {
         guard let url = URL(string: endpoint) else { return }
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: url) { (data, response, error) in
-            if error != nil { return }
-            guard let data = data else { return }
-            
-            do {
-                let responseData = try JSONDecoder().decode(model.self, from: data)
-                completion(responseData, nil)
-            } catch {
-                completion(nil, error)
-            }
-        }.resume()
+        DispatchQueue.global().async {
+            session.dataTask(with: url) { (data, response, error) in
+                if error != nil { return }
+                guard let data = data else { return }
+                
+                do {
+                    let responseData = try JSONDecoder().decode(model.self, from: data)
+                    completion(responseData, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            }.resume()
+        }
     }
     
 }
