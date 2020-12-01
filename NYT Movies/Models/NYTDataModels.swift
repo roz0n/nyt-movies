@@ -21,6 +21,16 @@ struct CriticModel: Codable {
     let status: String?
     let bio: String?
     let seo_name: String?
+    let multimedia: CriticMediaModel?
+}
+
+struct CriticMediaModel: Codable {
+    let resource: CriticMediaRescModel?
+}
+
+struct CriticMediaRescModel: Codable {
+    let type: String?
+    let src: String?
 }
 
 struct CriticReviewModel: Codable {
@@ -32,15 +42,15 @@ struct CriticReviewModel: Codable {
     let publication_date: String?
     let opening_date: String?
     let date_updated: String?
-    let link: CriticReviewModelLink
-    let multimedia: CriticReviewModelMedia
+    let link: CriticReviewLinkModel
+    let multimedia: CriticReviewMediaModel
 }
 
-struct CriticReviewModelLink: Codable {
+struct CriticReviewLinkModel: Codable {
     let url: String?
     let suggested_link_text: String?
 }
 
-struct CriticReviewModelMedia: Codable {
+struct CriticReviewMediaModel: Codable {
     let src: String?
 }

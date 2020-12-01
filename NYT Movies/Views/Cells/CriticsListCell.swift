@@ -18,6 +18,12 @@ class CriticsListCell: UITableViewCell {
             guard let criticData = criticData else { return }
             nameText.text = criticData.display_name
             bioText.text = criticData.bio
+            
+            if let photoUrl = criticData.multimedia?.resource?.src {
+                let formattedUrl = photoUrl.replacingOccurrences(of: "http://", with: "https://")
+                let url = URL(string: formattedUrl)
+                photoImage.loadRemote(url: url!)
+            }
         }
     }
     
@@ -36,8 +42,6 @@ class CriticsListCell: UITableViewCell {
     
     let photoWrapper: UIView = {
         let view  = UIView()
-        
-        view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -56,6 +60,12 @@ class CriticsListCell: UITableViewCell {
         view.clipsToBounds = true
         
         return view
+    }()
+    
+    let photoImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
     let infoContainer: UIView = {
@@ -120,12 +130,18 @@ extension CriticsListCell {
 
     func configurePhotoContainer() {
         photoWrapper.addSubview(photoContainer)
+        photoContainer.addSubview(photoImage)
+        
         NSLayoutConstraint.activate([
             photoContainer.centerYAnchor.constraint(equalTo: photoWrapper.centerYAnchor),
             photoContainer.leadingAnchor.constraint(equalTo: photoWrapper.leadingAnchor, constant: 12),
             photoContainer.trailingAnchor.constraint(equalTo: photoWrapper.trailingAnchor, constant: -12),
-            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListCell.photoSize)
+            photoContainer.heightAnchor.constraint(equalToConstant: CriticsListCell.photoSize),
+            photoImage.centerXAnchor.constraint(equalTo: photoContainer.centerXAnchor),
+            photoImage.centerYAnchor.constraint(equalTo: photoContainer.centerYAnchor),
         ])
+        
+        photoImage.contentMode = .scaleAspectFit
     }
     
     func configureInfoContainer() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233EEE542575C76700881654 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EEE532575C76700881654 /* UIImageView+Ext.swift */; };
 		235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF363256EF39700DAFCC0 /* AppDelegate.swift */; };
 		235DF366256EF39700DAFCC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF365256EF39700DAFCC0 /* SceneDelegate.swift */; };
 		235DF36D256EF39800DAFCC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235DF36C256EF39800DAFCC0 /* Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		235DF3AB256F97AC00DAFCC0 /* NYTMoviesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */; };
 		235DF3AF256F984200DAFCC0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 235DF3AE256F984200DAFCC0 /* Keys.plist */; };
 		23A6F3AC2572754B00965B2B /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6F3AB2572754B00965B2B /* UITextView+Ext.swift */; };
-		23A6F3AF257366BD00965B2B /* ReviewWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6F3AE257366BD00965B2B /* ReviewWebViewController.swift */; };
 		23C75B372571E4E400E742A7 /* CriticsReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C75B362571E4E400E742A7 /* CriticsReviewsViewController.swift */; };
 		23C75B3A2571F87400E742A7 /* NYTDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C75B392571F87400E742A7 /* NYTDataModels.swift */; };
 		23C75B49257242DE00E742A7 /* CriticsReviewsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C75B48257242DE00E742A7 /* CriticsReviewsTableController.swift */; };
@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		233EEE532575C76700881654 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		235DF360256EF39700DAFCC0 /* NYT Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYT Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		235DF363256EF39700DAFCC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		235DF365256EF39700DAFCC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		235DF3AA256F97AC00DAFCC0 /* NYTMoviesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NYTMoviesDataManager.swift; path = "NYT Movies/Services/NYTMoviesDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		235DF3AE256F984200DAFCC0 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		23A6F3AB2572754B00965B2B /* UITextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
-		23A6F3AE257366BD00965B2B /* ReviewWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWebViewController.swift; sourceTree = "<group>"; };
 		23C75B362571E4E400E742A7 /* CriticsReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsReviewsViewController.swift; sourceTree = "<group>"; };
 		23C75B392571F87400E742A7 /* NYTDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTDataModels.swift; sourceTree = "<group>"; };
 		23C75B48257242DE00E742A7 /* CriticsReviewsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsReviewsTableController.swift; sourceTree = "<group>"; };
@@ -121,7 +121,6 @@
 				235DF3A2256F365000DAFCC0 /* Cells */,
 				235DF396256F19E000DAFCC0 /* EmptyStateViews.swift */,
 				23C75B48257242DE00E742A7 /* CriticsReviewsTableController.swift */,
-				23A6F3AE257366BD00965B2B /* ReviewWebViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +130,7 @@
 			children = (
 				235DF39E256F312400DAFCC0 /* UIColor+Ext.swift */,
 				23A6F3AB2572754B00965B2B /* UITextView+Ext.swift */,
+				233EEE532575C76700881654 /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 				23A6F3AC2572754B00965B2B /* UITextView+Ext.swift in Sources */,
 				235DF3A4256F366800DAFCC0 /* CriticsListCell.swift in Sources */,
 				235DF364256EF39700DAFCC0 /* AppDelegate.swift in Sources */,
-				23A6F3AF257366BD00965B2B /* ReviewWebViewController.swift in Sources */,
 				235DF381256EFA5D00DAFCC0 /* CriticsListViewController.swift in Sources */,
+				233EEE542575C76700881654 /* UIImageView+Ext.swift in Sources */,
 				235DF390256F045B00DAFCC0 /* Constants.swift in Sources */,
 				235DF38C256EFAA700DAFCC0 /* FavoritesViewController.swift in Sources */,
 				23C75B3A2571F87400E742A7 /* NYTDataModels.swift in Sources */,
